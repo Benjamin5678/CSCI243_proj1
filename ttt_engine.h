@@ -15,7 +15,9 @@ typedef struct {
 } Move;
 
 /** Return value for get_move if any error occurs */
-#define INVALID (Move){ .r = -1, .c = -1 }
+#define INVALID (Move){.r = -1, .c = -1}
+/** Return value for get_move if quit */
+#define QUIT (Move){.r = -1, .c = 0}
 
 /**
  * Read std_in for a move in format rc and return the move or -1,-1 if any error

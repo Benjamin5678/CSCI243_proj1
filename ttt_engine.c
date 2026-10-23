@@ -1,14 +1,15 @@
 #include <stdio.h>
+#include <string.h>
 #include "ttt_engine.h"
 
 /**
- * Is an ASCII character a digit?
+ * Is an ASCII character a digit from 0-2?
  * @param i an ASCII character from getchar()
- * @return 1 if it is a digit else 0
+ * @return 1 if it is a valid row/col else 0
  */
-int is_digit(int i)
+int is_rc(int i)
 {
-    return i >= '0' && i <= '9';
+    return i >= '0' && i <= '2';
 }
 
 /**
@@ -29,30 +30,32 @@ int get_digit(int i)
 void clear_buffer()
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n');
 }
 
 Move get_move()
 {
-    char valid = 1;
-    char bf[4];
-    fgets(bf, sizeof(bf), stdin);
+    char bf[6];
 
+    // read and check for quit
+    if (fgets(bf, sizeof(bf), stdin) == NULL || !strcmp(bf, "quit\n") || !strcmp(bf, "q\n")) return QUIT;
+
+    // check for input larger than buffer
+    if (strchr(bf, '\n') == NULL) {
+        clear_buffer();
+        return INVALID;
+    }
+
+    // is length correct?
+    if (strlen(bf) != 3) return INVALID;
+
+    // parse move
     int r = bf[0];
     int c = bf[1];
 
     // is first char a number? is second char a number?
-    if (!is_digit(r)) valid = 0;
-    if (!is_digit(c)) valid = 0;
-    // was more than 2 characters entered?
-    if (valid && bf[2] != '\n' && bf[2] != EOF) {
-        valid = 0;
-        clear_buffer();
-    }
+    if (!is_rc(r)) return INVALID;
+    if (!is_rc(c)) return INVALID;
 
-    if (valid) {
-        return (Move){ .r = get_digit(r), .c = get_digit(c)};
-    } else {
-        return INVALID;
-    }
+    return (Move){ .r = get_digit(r), .c = get_digit(c)};
 }
