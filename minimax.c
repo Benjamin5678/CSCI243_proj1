@@ -8,11 +8,6 @@
 #include "minimax.h"
 #include "ttt_engine.h"
 
-/**
- * Copy an array into a wrapper struct
- * @b a char array of size 9
- * @return wrapper struct with arr values copied from b
- */
 Array wrap_array(char b[]) {
     Array new;
     for (int i = 0; i < 9; i++)
@@ -39,12 +34,6 @@ Array valid_moves(char b[]) {
     return wrap_array(open);
 }
 
-/**
- * The main minimax function
- * @board a tic tac toe board
- * @maximizingPlayer 1 for true, 0 for false, X is maximizing, O is minimizing
- * @return The expected value of a board state. 1 for X wins -1 for O wins
- */
 int minimax(Array board, int maximizingPlayer) {
     // base case
     State s = check_board(board.arr);
@@ -60,7 +49,7 @@ int minimax(Array board, int maximizingPlayer) {
     if (maximizingPlayer) {
         value = -1;
         int i = 0;
-        while (children.arr[i] != -1) {
+        while (i < 9 && children.arr[i] != -1) {
             Array child = wrap_array(board.arr);
             play_move(child.arr, children.arr[i], 'x');
             int child_value = minimax(child, 0);
@@ -70,7 +59,7 @@ int minimax(Array board, int maximizingPlayer) {
     } else {
         value = 1;
         int i = 0;
-        while (children.arr[i] != -1) {
+        while (i < 9 && children.arr[i] != -1) {
             Array child = wrap_array(board.arr);
             play_move(child.arr, children.arr[i], 'o');
             int child_value = minimax(child, 1);

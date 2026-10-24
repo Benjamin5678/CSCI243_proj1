@@ -97,30 +97,37 @@ int play_move(char b[], int m, char p) {
     b[m] = p;
 }
 
-
-/**
- * @return state corresponding with a player
- */
-State result(char p) {
-    if (p == 'x') return X;
-    if (p == 'o') return O;
-}
-
 State check_board(char b[]) {
     char p;
+    int x_win = 0;
+    int o_win = 0;
     // check cols
-    for (int col = 0; col < 3; col++)
-        if ((p = get_spot(b, 0, col)) != 'e' && p == get_spot(b, 1, col) && p == get_spot(b, 2, col))
-            return result(p);
+    for (int col = 0; col < 3; col++) {
+        if ((p = get_spot(b, 0, col)) != 'e' && p == get_spot(b, 1, col) && p == get_spot(b, 2, col)) {
+            if (p == 'x') x_win = 1;
+            if (p == 'o') o_win = 1;
+        }
+    }
     // check rows
-    for (int row = 0; row < 3; row++)
-        if ((p = get_spot(b, row, 0)) != 'e' && p == get_spot(b, row, 1) && p == get_spot(b, row, 2))
-            return result(p);
+    for (int row = 0; row < 3; row++) {
+        if ((p = get_spot(b, row, 0)) != 'e' && p == get_spot(b, row, 1) && p == get_spot(b, row, 2)) {
+            if (p == 'x') x_win = 1;
+            if (p == 'o') o_win = 1;
+        }
+    }
     // check diags
-    if ((p = get_spot(b, 0, 0)) != 'e' && get_spot(b, 1, 1) == p && get_spot(b, 2, 2) == p)
-        return result(p);
-    if ((p = get_spot(b, 0, 2)) != 'e' && get_spot(b, 1, 1) == p && get_spot(b, 2, 0) == p)
-        return result(p);
+    if ((p = get_spot(b, 0, 0)) != 'e' && get_spot(b, 1, 1) == p && get_spot(b, 2, 2) == p) {
+        if (p == 'x') x_win = 1;
+        if (p == 'o') o_win = 1;
+    }
+    if ((p = get_spot(b, 0, 2)) != 'e' && get_spot(b, 1, 1) == p && get_spot(b, 2, 0) == p) {
+        if (p == 'x') x_win = 1;
+        if (p == 'o') o_win = 1;
+    }
+
+    if (x_win && o_win) return IMPOSSIBLE; // simultaneous win
+    if (x_win) return X;
+    if (o_win) return O;
     
     // check draw
     for (int i = 0; i < 9; i++) {

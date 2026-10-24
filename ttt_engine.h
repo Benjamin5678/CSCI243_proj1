@@ -18,7 +18,8 @@ typedef enum {
     INCOMPLETE,
     X,
     O,
-    DRAW
+    DRAW,
+    IMPOSSIBLE
 } State;
 
 /**
