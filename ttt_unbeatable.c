@@ -39,5 +39,5 @@ int main(int argc, char *argv[])
     }
 
     // print result
-    printf("RESULT: %s\n", get_state_name(game_state));
+    printf("RESULT %s\n", get_state_name(game_state));
 }

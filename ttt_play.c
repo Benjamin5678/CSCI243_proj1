@@ -23,5 +23,5 @@ int main()
     }
 
     // print result
-    printf("RESULT: %s\n", get_state_name(game_state));
+    printf("RESULT %s\n", get_state_name(game_state));
 }

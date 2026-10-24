@@ -105,10 +105,10 @@ int main() {
     while (f = read_board(b)) {
         // check read_board, valid_chars, get_turn are all happy
         if (f == -1 || valid_chars(b) == 0 || (t = get_turn(b)) == 'i') {
-            printf("INVALID\n\n");
+            printf("INVALID\n");
             continue;
         }
         r = get_result(b, t);
-        printf("TURN %c RESULT %s\n\n", t, r);
+        printf("TURN %c RESULT %s\n", t, r);
     }
 }
