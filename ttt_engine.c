@@ -22,6 +22,15 @@ int get_digit(int i)
     return i - '0';
 }
 
+char* get_state_name(State s) {
+    switch (s) {
+        case INCOMPLETE: return "INCOMPLETE";
+        case X: return "X";
+        case O: return "O";
+        case DRAW: return "DRAW";
+    }
+}
+
 /**
  * Consume characters from stdin until a newline or EOF is found
  * @pre There should be characters in stdin or else program will pause
@@ -33,7 +42,26 @@ void clear_buffer()
     while ((c = getchar()) != '\n');
 }
 
-Move get_move()
+void init_board(char b[]) {
+    for (int i = 0; i < 9; i++)
+        b[i] = 'e';
+}
+
+char get_spot(char b[], int r, int c) {
+    return b[3*r + c];
+}
+
+void display_board(char b[]) {
+    for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col ++) {
+            printf("%c", get_spot(b, row, col));
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+int get_move()
 {
     char bf[6];
 
@@ -57,5 +85,50 @@ Move get_move()
     if (!is_rc(r)) return INVALID;
     if (!is_rc(c)) return INVALID;
 
-    return (Move){ .r = get_digit(r), .c = get_digit(c)};
+    return 3*get_digit(r) + get_digit(c);
+}
+
+int valid_move(char b[], int m) {
+    if (b[m] == 'e') return 1;
+    return 0;
+} 
+
+int play_move(char b[], int m, char p) {
+    b[m] = p;
+}
+
+
+/**
+ * @return state corresponding with a player
+ */
+State result(char p) {
+    if (p == 'x') return X;
+    if (p == 'o') return O;
+}
+
+State check_board(char b[]) {
+    char p;
+    // check cols
+    for (int col = 0; col < 3; col++)
+        if ((p = get_spot(b, 0, col)) != 'e' && p == get_spot(b, 1, col) && p == get_spot(b, 2, col))
+            return result(p);
+    // check rows
+    for (int row = 0; row < 3; row++)
+        if ((p = get_spot(b, row, 0)) != 'e' && p == get_spot(b, row, 1) && p == get_spot(b, row, 2))
+            return result(p);
+    // check diags
+    if ((p = get_spot(b, 0, 0)) != 'e' && get_spot(b, 1, 1) == p && get_spot(b, 2, 2) == p)
+        return result(p);
+    if ((p = get_spot(b, 0, 2)) != 'e' && get_spot(b, 1, 1) == p && get_spot(b, 2, 0) == p)
+        return result(p);
+    
+    // check draw
+    int f = 0;
+    for (int i = 0; i < 9; i++) {
+        if (b[i] == 'e') f = 1;
+        break;
+    }
+    if (f) return DRAW;
+
+    return INCOMPLETE;
 }

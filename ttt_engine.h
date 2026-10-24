@@ -8,30 +8,63 @@
 #ifndef TTT_ENGINE
 #define TTT_ENGINE
 
-/** Type to represent a move as a combination of a row and col */
-typedef struct {
-    char r;
-    char c;
-} Move;
-
 /** Return value for get_move if any error occurs */
-#define INVALID (Move){.r = -1, .c = -1}
+#define INVALID -1
 /** Return value for get_move if quit */
-#define QUIT (Move){.r = -1, .c = 0}
+#define QUIT -2
+
+/** Enum for board state */
+typedef enum {
+    INCOMPLETE,
+    X,
+    O,
+    DRAW
+} State;
 
 /**
- * Read std_in for a move in format rc and return the move or -1,-1 if any error
- * @return {r: row, c: col} or INVALID if any error
+ * @return string corresponding to state value
  */
-Move get_move();
+char* get_state_name(State s);
+
+/**
+ * set all spaces in board to 'e'
+ * @b a tic tac toe board char[9]
+ */
+void init_board(char b[9]);
+
+/**
+ * Print out the board
+ * @b a tic tac toe board char[9]
+ */
+void display_board(char b[9]);
+
+/**
+ * Read std_in for a move in format rc and return the move or a special value
+ * @return move 0-8 or QUIT or INVALID if any error
+ */
+int get_move();
 
 /**
  * Check if a move is valid given a board
- * @g a tic tac toe board char[3][3]
+ * @b a tic tac toe board char[9]
  * @m a move
  */
-// int valid_move(char[][] g, m); 
+int valid_move(char b[9], int m); 
 
+/**
+ * Play a move on the board
+ * @b a tic tac toe board char[9]
+ * @i index of board 0-8
+ * @p which player 'X' or 'O'
+ * @pre check that the move is valid
+ */
+int play_move(char b[9], int i, char p);
 
+/**
+ * Check for end of game
+ * @b a tic tac toe board char[9]
+ * @return the board state
+ */
+State check_board(char b[9]);
 
 #endif
