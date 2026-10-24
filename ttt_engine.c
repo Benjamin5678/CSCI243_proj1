@@ -123,12 +123,9 @@ State check_board(char b[]) {
         return result(p);
     
     // check draw
-    int f = 0;
     for (int i = 0; i < 9; i++) {
-        if (b[i] == 'e') f = 1;
-        break;
+        if (b[i] == 'e') return INCOMPLETE;
     }
-    if (f) return DRAW;
 
-    return INCOMPLETE;
+    return DRAW;
 }
