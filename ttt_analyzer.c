@@ -74,7 +74,9 @@ int valid_chars(char b[]) {
  */
 char get_turn(char b[]) {
     // check for simultaneous win
-    if (check_board(b) == IMPOSSIBLE) return 'i';
+    State s = check_board(b);
+    if (s == IMPOSSIBLE) return 'i';
+    if (s != INCOMPLETE) return '-';
     // count x's and o's
     int xs = 0;
     int os = 0;
