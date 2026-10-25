@@ -1,3 +1,27 @@
+commit a244ec20c8c99e883756cb2f534e2a3798eae8f2
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:21:21 2026 -0400
+
+    bug where get_turn returned a finished result before checking plausible # of x's and o's
+
+commit 424069f6bda4603a76eda3e5cd0b3c30d6419a91
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:18:25 2026 -0400
+
+    added file header to ttt_engine.h
+
+commit a9c7c9ea5a2cc0e5b919aa900c23c4735c9d6064
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:14:29 2026 -0400
+
+    fixed analyzer never saying 'TURN -'
+
+commit 47886f6d298247eed9bd09ba7daf51c02fd3f655
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:09:56 2026 -0400
+
+    added revisions.txt
+
 commit 400f46c460702c3c72f386bb4c0c30e8caaace12
 Author: Benjamin Hewitt <bxh2408@rit.edu>
 Date:   Sat Oct 24 20:09:38 2026 -0400
