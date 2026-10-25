@@ -83,8 +83,14 @@ char get_turn(char b[]) {
         if (b[i] == 'x') xs++;
         if (b[i] == 'o') os++;
     }
+    // check that there is a rational # of x's and o's
     if (xs != os && xs != os + 1) return 'i';
+    // if there is a winner, check that they made the last move
+    if (s == X && os == xs) return 'i';
+    if (s == O && xs > os) return 'i';
+    // check if the game is done
     if (s != INCOMPLETE) return '-';
+    // current turn if game is still ongoing
     return xs == os ? 'X' : 'O';
 }
 
