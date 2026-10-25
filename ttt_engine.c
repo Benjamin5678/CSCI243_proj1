@@ -1,3 +1,10 @@
+/**
+ * @file ttt_engine.h
+ * @brief helper functions for playing ttt
+ *
+ * @author Benjamin Hewitt
+ * @course CSCI-243 Project 1
+ */
 #include <stdio.h>
 #include <string.h>
 #include "ttt_engine.h"
