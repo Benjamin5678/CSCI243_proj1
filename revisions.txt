@@ -1,0 +1,53 @@
+commit 400f46c460702c3c72f386bb4c0c30e8caaace12
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:09:38 2026 -0400
+
+    finished docs
+
+commit 3c17780639056717509ff0decea14c93b24c2bde
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 19:52:59 2026 -0400
+
+    removed ':' from output
+
+commit b2b77df8125c2bded94e42140656845f161f5076
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 19:45:33 2026 -0400
+
+    finished analyzer
+
+commit e8a12aed7abdc3ed64758e798b902e836ce9cfcf
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Fri Oct 23 23:13:22 2026 -0400
+
+    started ttt_analyzer.c
+
+commit 847d17e37f35a3e2a8b8f0263bb31cebd4654dc2
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Fri Oct 23 22:44:04 2026 -0400
+
+    implement minimax and add ttt_unbeatable.c. Also added ttt_random.c because I forgot to last commit.
+
+commit 9c56adfc28e254bdecf9f96abc88a690ea8990a1
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Fri Oct 23 21:10:33 2026 -0400
+
+    fixed draw checking bug. finished ttt_random.
+
+commit f22266f647384694df927021871c59d993826d74
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Fri Oct 23 20:32:56 2026 -0400
+
+    finish ttt_play
+
+commit 887d9da8eda9858af292baf3efeaac086da69d53
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Fri Oct 23 19:10:32 2026 -0400
+
+    fix input processing add quit macro
+
+commit df5f6d8d1e30af3461ae36993a8ce8758204a604
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Thu Oct 1 12:10:31 2026 -0400
+
+    Initial commit: created ttt_engine.h ttt_engine.c ttt_play.c, input processing with edge cases implemented
