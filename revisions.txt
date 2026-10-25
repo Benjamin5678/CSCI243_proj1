@@ -1,3 +1,21 @@
+commit 0d2e5b34615dbb7d17856126c81900bc2ebab2a1
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:38:21 2026 -0400
+
+    added email to ttt_engine.c
+
+commit 7a5e22ab4153caec53d8b61c9e74d90b1dd75e5e
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:35:29 2026 -0400
+
+    added check in get_turn that if a player has won they should've placed the last move
+
+commit 4153d1c8099077f3eaa94a662da52c37d3dccb79
+Author: Benjamin Hewitt <bxh2408@rit.edu>
+Date:   Sat Oct 24 20:23:43 2026 -0400
+
+    update revisions.txt
+
 commit a244ec20c8c99e883756cb2f534e2a3798eae8f2
 Author: Benjamin Hewitt <bxh2408@rit.edu>
 Date:   Sat Oct 24 20:21:21 2026 -0400
