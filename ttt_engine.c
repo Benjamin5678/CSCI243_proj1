@@ -2,7 +2,7 @@
  * @file ttt_engine.h
  * @brief helper functions for playing ttt
  *
- * @author Benjamin Hewitt
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
  * @course CSCI-243 Project 1
  */
 #include <stdio.h>
