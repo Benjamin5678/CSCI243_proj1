@@ -1,12 +1,23 @@
+/**
+ * @file ttt_unbeatable.c
+ * @brief play against a bot who always makes perfect moves
+ *
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
+ * @course CSCI-243 Project 1
+ */
 #include <stdio.h>
 #include <string.h>
 #include "ttt_engine.h"
 #include "minimax.h"
 
+/**
+ * The main program for ttt_unbeatable
+ * @return 0 when finished
+ */
 int main(int argc, char *argv[])
 {
     if (argc != 2) {
-        printf("USAGE: ttt_random {bot (X | O)}\n");
+        printf("USAGE: ttt_unbeatable {bot (X | O)}\n");
         return -1;
     }
 

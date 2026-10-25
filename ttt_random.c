@@ -1,9 +1,19 @@
+/**
+ * @file ttt_random.c
+ * @brief play against a bot that picks random moves
+ *
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
+ * @course CSCI-243 Project 1
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #include "ttt_engine.h"
 
+/**
+ * @return a random valid move 0-8
+ */
 int random_move(char board[]) {
     int open[9];
     int count = 0;
@@ -17,6 +27,11 @@ int random_move(char board[]) {
     return open[rand() % count];
 }
 
+/**
+ * The main program for ttt_random
+ * run the program with an argument X or O to determine who will be the bot
+ * @return 0 when program finishes
+ */
 int main(int argc, char *argv[])
 {
     srand(time(NULL));

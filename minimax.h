@@ -1,6 +1,14 @@
+/**
+ * @file minimax.h
+ * @brief header file for minimax algorithm
+ *
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
+ * @course CSCI-243 Project 1
+ */
 #ifndef MINIMAX
 #define MINIMAX
 
+/** A wrapper for an array to get returned from functions */
 typedef struct {
     char arr[9];
 } Array;

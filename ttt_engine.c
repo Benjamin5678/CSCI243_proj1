@@ -93,7 +93,7 @@ int valid_move(char b[], int m) {
     return 0;
 } 
 
-int play_move(char b[], int m, char p) {
+void play_move(char b[], int m, char p) {
     b[m] = p;
 }
 

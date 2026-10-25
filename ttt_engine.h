@@ -2,7 +2,7 @@
  * @file ttt_engine.h
  * @brief helper functions for tic tac toe games
  *
- * @author Benjamin Hewitt
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
  * @course CSCI-243 Project 1 (Tic-Tac-Toe)
  */
 #ifndef TTT_ENGINE
@@ -19,7 +19,7 @@ typedef enum {
     X,
     O,
     DRAW,
-    IMPOSSIBLE
+    IMPOSSIBLE // both players have a win
 } State;
 
 /**
@@ -49,6 +49,7 @@ int get_move();
  * Check if a move is valid given a board
  * @b a tic tac toe board char[9]
  * @m a move
+ * @return 1 valid, 0 invalid (there isn't an 'e' at that spot)
  */
 int valid_move(char b[9], int m); 
 
@@ -57,12 +58,15 @@ int valid_move(char b[9], int m);
  * @b a tic tac toe board char[9]
  * @i index of board 0-8
  * @p which player 'X' or 'O'
+ * @return 
  * @pre check that the move is valid
  */
-int play_move(char b[9], int i, char p);
+void play_move(char b[9], int i, char p);
 
 /**
  * Check for end of game
+ * It checks if both players have a win to return IMPOSSIBLE but it doesn't count x's and o's
+ * See ttt_analyzer:get_turn for that
  * @b a tic tac toe board char[9]
  * @return the board state
  */

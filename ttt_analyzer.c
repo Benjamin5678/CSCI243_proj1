@@ -1,3 +1,10 @@
+/**
+ * @file ttt_analyzer.c
+ * @brief enter a board and get an analysis of who will win
+ *
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
+ * @course CSCI-243 Project 1
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -97,6 +104,10 @@ char *get_result(char b[], char turn) {
 }
 
 
+/**
+ * The main program for ttt_analyzer
+ * @return 0 when quit
+ */
 int main() {
     char b[9];
     int f;

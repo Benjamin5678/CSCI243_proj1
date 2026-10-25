@@ -1,6 +1,18 @@
+/**
+ * @file ttt_play.c
+ * @brief play ttt with two players from the terminal
+ *
+ * @author Benjamin Hewitt <bxh2408@rit.edu>
+ * @course CSCI-243 Project 1
+ */
 #include <stdio.h>
 #include "ttt_engine.h"
 
+/**
+ * The main program for ttt_play
+ * Enter a move as "rc" where r & c are from 0-2
+ * @return should be 0
+ */
 int main()
 {
     char b[9];
