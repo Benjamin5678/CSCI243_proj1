@@ -76,7 +76,6 @@ char get_turn(char b[]) {
     // check for simultaneous win
     State s = check_board(b);
     if (s == IMPOSSIBLE) return 'i';
-    if (s != INCOMPLETE) return '-';
     // count x's and o's
     int xs = 0;
     int os = 0;
@@ -85,6 +84,7 @@ char get_turn(char b[]) {
         if (b[i] == 'o') os++;
     }
     if (xs != os && xs != os + 1) return 'i';
+    if (s != INCOMPLETE) return '-';
     return xs == os ? 'X' : 'O';
 }
 
